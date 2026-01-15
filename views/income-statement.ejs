@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Income Statement</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav>
+  <div>
+    <a href="/ledger/dashboard">Dashboard</a>
+    <a href="/ledger/income-statement">Income Statement</a>
+  </div>
+  <a href="/logout">Logout</a>
+</nav>
+
+<div class="container">
+
+  <div class="card">
+    <h2>Income Statement</h2>
+    <p>Period: All Records</p>
+  </div>
+
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Type</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% entries.forEach(entry => { %>
+          <tr>
+            <td><%= entry.description %></td>
+            <td><%= entry.type.toUpperCase() %></td>
+            <td>KES <%= entry.amount.toLocaleString() %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Summary</h3>
+    <p><strong>Total Income:</strong> KES <%= totalIncome.toLocaleString() %></p>
+    <p><strong>Total Expenses:</strong> KES <%= totalExpenses.toLocaleString() %></p>
+
+    <hr style="margin:15px 0">
+
+    <h2>
+      Net Profit:
+      <span style="color:<%= netProfit >= 0 ? 'green' : 'red' %>">
+        KES <%= netProfit.toLocaleString() %>
+      </span>
+    </h2>
+  </div>
+
+</div>
+
+<footer>
+  Sole Trader Accounting System © <%= new Date().getFullYear() %>
+</footer>
+
+</body>
+</html>
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Financial Entry</title>
+   <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<nav>
+  <div>
+    <a href="/ledger/dashboard">Dashboard</a>
+    <a href="/ledger/income-statement">Income Statement</a>
+  </div>
+  <a href="/logout">Logout</a>
+</nav>
+
+  <h2>Add Financial Entry</h2>
+
+  <form method="POST" action="/ledger/add">
+    <label>Type</label><br>
+    <select name="type" required>
+      <option value="income">Income</option>
+      <option value="expense">Expense</option>
+      <option value="purchase">Purchase</option>
+      <option value="drawing">Drawing</option>	
+    </select><br><br>
+
+    <label>Amount</label><br>
+    <input
+      type="number"
+      name="amount"
+      step="0.01"
+      placeholder="Enter amount"
+      required
+    ><br><br>
+
+    <label>Description</label><br>
+    <input
+      type="text"
+      name="description"
+      placeholder="e.g. Sales, Rent, Transport"
+      required
+    ><br><br>
+
+    <button type="submit">Save Entry</button>
+  </form>
+
+  <br>
+  <a href="/ledger/dashboard">⬅ Back to Dashboard</a>
+
+</body>
+</html>
+
